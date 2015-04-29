@@ -1,0 +1,24 @@
+form[is="site-form"]{
+    login-username, login-password{
+        display: block;
+        margin: 20px;
+
+        > label {
+            margin: 10px;
+            float: left;
+        }
+
+        > input {
+            @extend %form-control;
+        }
+    }
+    > .inner-wrapper {
+        display: inline-block;
+
+        button[type="submit"] {
+            float: right;
+            margin-right: 20px;
+            @extend .btn;
+        }
+    }
+}

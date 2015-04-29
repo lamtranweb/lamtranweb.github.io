@@ -1,0 +1,1 @@
+define([],function(){var e={load:function(e,n,r,i){t(n.toUrl(e)).then(function(e){r(e)})}},t=function(e){var t=new Promise(function(t,n){var r=new XMLHttpRequest;r.open("GET",e,!0),r.onreadystatechange=function(){r.readyState===4&&(r.status==200?t(r.responseText,e):r.status==404&&n(r.status,e))},r.send(null)});return t};return e});

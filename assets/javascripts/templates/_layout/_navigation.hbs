@@ -1,0 +1,17 @@
+<site-header>
+    {{#block 'logo'}}
+        <a href="/" class="logo-link"><span class="logo-image"></span><span class="site-name">{{siteName}}</span></a>
+    {{/block}}
+    <site-navigation>
+        {{#block 'navigation'}}
+            {{#each navigation}}
+                <site-navigation-item>
+                    <a href="{{url}}" {{#if target}}target="{{target}}"{{/if}}><span class="site-text">{{text}}</span></a>
+                </site-navigation-item>
+            {{/each}}
+        {{/block}}
+    </site-navigation>
+</site-header>
+<!--
+<button is="nu-hamburger"><i class="fa fa-bars"></i></button>
+-->

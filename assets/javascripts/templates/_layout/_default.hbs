@@ -1,0 +1,70 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>{{siteName}}</title>
+    <link type="text/css" rel="stylesheet" href="/assets/stylesheets/styles.css"/>
+    {{{block 'head-scripts'}}}
+</head>
+<body>
+    <site-screens id="screens">{{{body}}}</site-screens>
+    {{> navigation this }}
+    <site-footer></site-footer>
+    <script>
+        window.locale = "{{locale}}";
+    </script>
+    <script src="/assets/javascripts/require.js"></script>
+    <script>
+        window.profilePaths = {{{json profile-paths}}};
+        require.config({
+            baseUrl: '/assets/javascripts',
+            paths: {{{json paths}}},
+            template: { // optional
+                helpers: true,            // default: true
+                i18n: false,              // default: false
+                templateExtension: 'hbs', // default: 'hbs'
+                partialsUrl: 'templates/helpers/',           // default: ''
+                layoutDir: 'templates/_layout/',
+                partialsDir: 'templates/_partials/'
+            },
+            shim : {
+                "typeahead": {
+                    deps :["jquery"]
+                },
+                "d3": {
+                    deps :["jquery"]
+                },
+                "topojson146": {
+                    deps :["jquery"]
+                },
+                "topojson-min": {
+                    deps :["jquery"]
+                },
+                "velocity": {
+                    deps :["jquery"]
+                },
+                "velocity.ui": {
+                    deps :["velocity"]
+                }
+            },
+            config: {
+                moment: {
+                    noGlobal: true
+                },
+                //module ID
+                i18n: {
+    //            locale: window.locale
+                }
+            }
+        });
+        require(['main','partials'], function () {
+        });
+    </script>
+    {{#block 'body-scripts'}}
+        <script>
+            window.platformReady = true;
+        </script>
+    {{/block}}
+</body>
+</html>

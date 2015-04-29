@@ -1,0 +1,118 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Lam Tran</title>
+    <link type="text/css" rel="stylesheet" href="/assets/stylesheets/styles.css"/>
+    
+</head>
+<body>
+    <site-screens id="screens">
+<site-screen id="index.html" class="cover active">
+    <div class="inner-cover">
+        <div class="inner-wrapper">
+            
+<h3>--[ Code ]--</h3>
+<site-navigation>
+    <site-navigation-item>
+        <a href="iOS.html"><span class="site-text">iOS</span></a>
+    </site-navigation-item>
+    <site-navigation-item>
+        <a href="android.html"><span class="site-text">Android</span></a>
+    </site-navigation-item>
+    <site-navigation-item>
+        <a href="web.html"><span class="site-text">Web</span></a>
+    </site-navigation-item>
+    <site-navigation-item>
+        <a href="scripting.html"><span class="site-text">Scripting</span></a>
+    </site-navigation-item>
+    <site-navigation-item>
+        <a href="mapping.html"><span class="site-text">Mapping</span></a>
+    </site-navigation-item>
+</site-navigation>
+
+<h3>--[ Design ]--</h3>
+<site-navigation>
+    <site-navigation-item>
+        <a href="sketch.html"><span class="site-text">Sketch</span></a>
+    </site-navigation-item>
+</site-navigation>
+
+        </div>
+    </div>
+</site-screen>
+
+
+
+
+
+
+</site-screens>
+    <site-header>
+        <a href="/" class="logo-link"><span class="site-name"></span></a>
+        <site-navigation>
+                    <site-navigation-item>
+                        <a href="contact.html" ><span class="site-text">Contact</span></a>
+                    </site-navigation-item>
+        </site-navigation>
+    </site-header>
+    <!--
+    <button is="nu-hamburger"><i class="fa fa-bars"></i></button>
+    -->
+    <site-footer></site-footer>
+    <script>
+        window.locale = "";
+    </script>
+    <script src="/assets/javascripts/require.js"></script>
+    <script>
+        window.profilePaths = {};
+        require.config({
+            baseUrl: '/assets/javascripts',
+            paths: {"observe":"ext/Object.observe.poly","getOffsetFromParents":"ext/getOffsetFromParents","i18n":"ext/i18n","template":"common/template","normalize":"ext/normalize","css-builder":"ext/css-builder","handlebars":"ext/handlebars-v2.0.0","text":"ext/text","jquery":"ext/jquery.min","promise":"ext/promise-1.0.0","custom-element":"ext/document-register-element","moment":"ext/moment.min","signals":"ext/signals","hasher":"ext/hasher","crossroads":"ext/crossroads","velocity":"ext/velocity.min","velocity.ui":"ext/velocity.ui.min","d3":"ext/d3.v3.min/index","d3geo":"ext/d3geo","topojson":"ext/topojson/topojson","shifty":"ext/shifty.min"},
+            template: { // optional
+                helpers: true,            // default: true
+                i18n: false,              // default: false
+                templateExtension: 'hbs', // default: 'hbs'
+                partialsUrl: 'templates/helpers/',           // default: ''
+                layoutDir: 'templates/_layout/',
+                partialsDir: 'templates/_partials/'
+            },
+            shim : {
+                "typeahead": {
+                    deps :["jquery"]
+                },
+                "d3": {
+                    deps :["jquery"]
+                },
+                "topojson146": {
+                    deps :["jquery"]
+                },
+                "topojson-min": {
+                    deps :["jquery"]
+                },
+                "velocity": {
+                    deps :["jquery"]
+                },
+                "velocity.ui": {
+                    deps :["velocity"]
+                }
+            },
+            config: {
+                moment: {
+                    noGlobal: true
+                },
+                //module ID
+                i18n: {
+    //            locale: window.locale
+                }
+            }
+        });
+        require(['main','partials'], function () {
+        });
+    </script>
+        <script>
+            window.platformReady = true;
+        </script>
+</body>
+</html>

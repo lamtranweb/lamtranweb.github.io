@@ -1,0 +1,39 @@
+define(function(require){
+{{#each partials}}
+    var {{name}} = require('text!{{path}}');
+{{/each}}
+    var handlebars = require('handlebars');
+
+    var layoutPattern = /\{{!<\s+([A-Za-z0-9\._\-\/]+)\s*}}/;
+    var layoutDir = 'templates/_layout/';
+
+    var parsePartial = function(text, parentRequire){
+        var promise = new Promise(function(resolve){
+            var template = handlebars.compile(text);
+            var matches = text.match(layoutPattern);
+            if (matches) {
+
+                var layout = layoutDir + matches[1] + '.hbs';
+                parentRequire(['text!'+layout],function (layoutText) {
+                    var compiledLayout = handlebars.compile(layoutText);
+                    resolve(function (context, options) {
+                        context.body = template(context, options);
+                        return compiledLayout(context);
+                    });
+                });
+            } else {
+                resolve(function (context, options) {
+                    return template(context, options);
+                });
+            }
+        });
+
+        return promise;
+    };
+
+{{#each partials}}
+    parsePartial({{name}}, require, {}).then(function(compiledTemplate){
+        handlebars.registerPartial('{{partial}}', compiledTemplate);
+    });
+{{/each}}
+});

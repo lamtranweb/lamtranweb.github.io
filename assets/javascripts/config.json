@@ -1,0 +1,23 @@
+{
+    "observe": "ext/Object.observe.poly",
+    "getOffsetFromParents": "ext/getOffsetFromParents",
+    "i18n": "ext/i18n",
+    "template": "common/template",
+    "normalize": "ext/normalize",
+    "css-builder": "ext/css-builder",
+    "handlebars": "ext/handlebars-v2.0.0",
+    "text":"ext/text",
+    "jquery":"ext/jquery.min",
+    "promise": "ext/promise-1.0.0",
+    "custom-element": "ext/document-register-element",
+    "moment": "ext/moment.min",
+    "signals": "ext/signals",
+    "hasher": "ext/hasher",
+    "crossroads": "ext/crossroads",
+    "velocity": "ext/velocity.min",
+    "velocity.ui": "ext/velocity.ui.min",
+    "d3":"ext/d3.v3.min/index",
+    "d3geo":"ext/d3geo",
+    "topojson":"ext/topojson/topojson",
+    "shifty":"ext/shifty.min"
+}
